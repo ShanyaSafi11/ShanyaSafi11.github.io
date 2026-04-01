@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
+<title>Vatsal | Portfolio</title>
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
 * {
@@ -13,8 +16,12 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: #0f172a;
+    background: linear-gradient(135deg, #0f172a, #020617);
     color: #fff;
 }
 
@@ -24,9 +31,10 @@ nav {
     justify-content: space-between;
     padding: 20px 50px;
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 nav h2 {
@@ -37,16 +45,21 @@ nav a {
     color: white;
     text-decoration: none;
     margin-left: 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #38bdf8;
 }
 
 /* Hero */
 .hero {
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 52px;
 }
 
 .hero span {
@@ -61,12 +74,30 @@ nav a {
 .btn {
     display: inline-block;
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 12px 25px;
     background: #38bdf8;
     color: black;
-    border-radius: 25px;
+    border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Glow */
+.btn::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    top: 0;
+    left: -100%;
+    transition: 0.4s;
+}
+
+.btn:hover::after {
+    left: 100%;
 }
 
 /* Sections */
@@ -79,23 +110,51 @@ h2 {
     color: #38bdf8;
 }
 
-/* Cards */
+/* Skills */
+.skills span {
+    display: inline-block;
+    background: #1e293b;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.skills span:hover {
+    background: #38bdf8;
+    color: black;
+}
+
+/* Projects */
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
 .card {
-    background: #1e293b;
+    background: rgba(255,255,255,0.05);
     padding: 20px;
     border-radius: 15px;
-    transition: 0.3s;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    background: #334155;
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(56,189,248,0.3);
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 8px 15px;
+    background: #38bdf8;
+    color: black;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 /* Footer */
@@ -103,69 +162,125 @@ footer {
     text-align: center;
     padding: 20px;
     background: #020617;
-    margin-top: 40px;
 }
 </style>
-
 </head>
 
 <body>
 
 <!-- Navbar -->
 <nav>
-    <h2>YourName</h2>
+    <h2>Vatsal</h2>
     <div>
         <a href="#about">About</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <div class="hero">
-    <h1>Hi, I'm <span>Your Name</span></h1>
-    <p>Flutter Developer | Machine Learning Enthusiast</p>
+    <h1>Hi, I'm <span id="typing"></span></h1>
+    <p>I build apps that increase user engagement and performance 🚀</p>
     <a href="#projects" class="btn">View My Work</a>
 </div>
 
 <!-- About -->
-<section id="about">
+<section id="about" data-aos="fade-up">
     <h2>About Me</h2>
     <p>
-        I am a passionate developer skilled in Flutter and Machine Learning. 
-        I build mobile apps and intelligent systems that solve real-world problems.
+        I build modern mobile applications using Flutter and develop intelligent systems using Machine Learning.
+        I focus on creating real-world solutions with clean UI and scalable backend systems.
     </p>
 </section>
 
+<!-- Skills -->
+<section id="skills" data-aos="fade-right">
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>Flutter</span>
+        <span>Dart</span>
+        <span>Python</span>
+        <span>Machine Learning</span>
+        <span>Flask</span>
+        <span>MySQL</span>
+        <span>API Integration</span>
+    </div>
+</section>
+
 <!-- Projects -->
-<section id="projects">
+<section id="projects" data-aos="zoom-in">
     <h2>Projects</h2>
 
     <div class="projects">
 
-        <div class="card">
+        <div class="card" data-aos="flip-left">
             <h3>📱 Shopping App</h3>
-            <p>Flutter app with login, cart, categories, and API integration.</p>
+            <p>Flutter app with authentication, cart system, and API integration.</p>
+            <a href="#">Live</a>
+            <a href="#">Code</a>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="flip-left">
             <h3>🤖 Email Spam Detection</h3>
-            <p>ML model using Python & Flask to detect spam emails.</p>
+            <p>Machine learning model with Flask backend to detect spam emails.</p>
+            <a href="#">Live</a>
+            <a href="#">Code</a>
         </div>
 
     </div>
 </section>
 
 <!-- Contact -->
-<section id="contact">
+<section id="contact" data-aos="fade-left">
     <h2>Contact</h2>
     <p>Email: your@email.com</p>
+    <p>Available for freelance work 🚀</p>
 </section>
 
 <!-- Footer -->
 <footer>
-    <p>© 2026 Your Name | Portfolio</p>
+    <p>© 2026 Vatsal | Portfolio</p>
 </footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration: 1000,
+    once: true
+});
+</script>
+
+<!-- Typing Animation -->
+<script>
+const text = ["Vatsal", "Flutter Developer", "ML Engineer"];
+let i = 0, j = 0, currentText = "", isDeleting = false;
+
+function type() {
+  if (i < text.length) {
+    if (!isDeleting && j <= text[i].length) {
+      currentText = text[i].substring(0, j++);
+    } else if (isDeleting && j >= 0) {
+      currentText = text[i].substring(0, j--);
+    }
+
+    document.getElementById("typing").innerHTML = currentText;
+
+    if (j === text[i].length) isDeleting = true;
+    if (j === 0) {
+      isDeleting = false;
+      i = (i + 1) % text.length;
+    }
+  }
+
+  setTimeout(type, isDeleting ? 50 : 100);
+}
+
+type();
+</script>
 
 </body>
 </html>
