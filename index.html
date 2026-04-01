@@ -1,62 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            background: #f4f4f4;
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        section {
-            padding: 20px;
-        }
-        .project {
-            background: white;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #fff;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+}
+
+nav h2 {
+    color: #38bdf8;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero span {
+    color: #38bdf8;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #94a3b8;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #38bdf8;
+    color: black;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Sections */
+section {
+    padding: 60px 10%;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #38bdf8;
+}
+
+/* Cards */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: #334155;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    margin-top: 40px;
+}
+</style>
+
 </head>
 
 <body>
 
-<header>
-    <h1>Your Name</h1>
-    <p>Flutter Developer | ML Enthusiast</p>
-</header>
+<!-- Navbar -->
+<nav>
+    <h2>YourName</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-<section>
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Hi, I'm <span>Your Name</span></h1>
+    <p>Flutter Developer | Machine Learning Enthusiast</p>
+    <a href="#projects" class="btn">View My Work</a>
+</div>
+
+<!-- About -->
+<section id="about">
     <h2>About Me</h2>
-    <p>I am a developer skilled in Flutter and Machine Learning. I build apps and intelligent systems.</p>
+    <p>
+        I am a passionate developer skilled in Flutter and Machine Learning. 
+        I build mobile apps and intelligent systems that solve real-world problems.
+    </p>
 </section>
 
-<section>
+<!-- Projects -->
+<section id="projects">
     <h2>Projects</h2>
 
-    <div class="project">
-        <h3>Shopping App</h3>
-        <p>Built using Flutter with cart, login, and categories.</p>
-    </div>
+    <div class="projects">
 
-    <div class="project">
-        <h3>Email Spam Detection</h3>
-        <p>ML model using Python & Flask to detect spam emails.</p>
-    </div>
+        <div class="card">
+            <h3>📱 Shopping App</h3>
+            <p>Flutter app with login, cart, categories, and API integration.</p>
+        </div>
 
+        <div class="card">
+            <h3>🤖 Email Spam Detection</h3>
+            <p>ML model using Python & Flask to detect spam emails.</p>
+        </div>
+
+    </div>
 </section>
 
-<section>
+<!-- Contact -->
+<section id="contact">
     <h2>Contact</h2>
     <p>Email: your@email.com</p>
 </section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Your Name | Portfolio</p>
+</footer>
 
 </body>
 </html>
